@@ -5,7 +5,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% self_css_path = "/assets/"+controller.controller_name  %>
+  　<%= stylesheet_link_tag self_css_path, :media => "all", 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
