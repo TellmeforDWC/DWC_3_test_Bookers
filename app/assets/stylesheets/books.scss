@@ -9,4 +9,22 @@ h1 {
 table {
   border-collapse: separate;
   border-spacing: 10px;
+  display: table;
+}
+
+thead {
+  vertical-align: middle;
+}
+
+.td-option-link {
+  width: 160px;
+  text-align-last: justify;
+}
+
+.form-title {
+  margin-bottom: 0;
+}
+
+.form {
+  marigin: 0 auto;
 }

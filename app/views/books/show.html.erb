@@ -7,4 +7,4 @@
 <br>
 <strong>Body: </strong><%= @book.body %>
 <br>
-<p>Edit | <%= link_to "Back", books_path%></p>
+<p><%= link_to "Edit", edit_book_path(@book) %> | <%= link_to "Back", books_path %></p>
