@@ -1,4 +1,8 @@
 <body>
+  <% flash.each do |message_type, message| %>
+  <%= message %>
+<% end %>
+
   <h1>Books</h1>
 
 <!--表-->
@@ -14,7 +18,7 @@
       <% @book.each do |book| %>
       <td><%= link_to book.title, book_path(book) %></td>
       <td><%= link_to book.body, book_path(book) %></td>
-      <td><span>Show</span> <span>Edit</span> <span>Delete</span></td>
+      <td><span><%= link_to "Show", book_path(book) %></span><span><%= link_to "Edit", edit_book_path(book) %></span> <span><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></span></td>
       <% end %>
     </tbody>
 

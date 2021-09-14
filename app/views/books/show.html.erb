@@ -1,7 +1,10 @@
-<P>Book was successfully created.</p>
+<% flash.each do |message_type, message| %>
+  <%= message %>
+<% end %>
+
 <br>
 <strong>Title: </strong><%= @book.title %>
 <br>
 <strong>Body: </strong><%= @book.body %>
 <br>
-<p>Edit | Back</p>
+<p>Edit | <%= link_to "Back", books_path%></p>
