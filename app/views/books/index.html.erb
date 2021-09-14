@@ -15,7 +15,7 @@
     </thead>
 
     <tbody>
-      <% @book.each do |book| %>
+      <% @books.each do |book| %>
       <td><%= link_to book.title, book_path(book) %></td>
       <td><%= link_to book.body, book_path(book) %></td>
       <td><span><%= link_to "Show", book_path(book) %></span><span><%= link_to "Edit", edit_book_path(book) %></span> <span><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></span></td>
@@ -28,7 +28,15 @@
   <div class="form-area">
     <h2>New Book</h2>
 
+    <% if @book.errors.any? %>
+      <%= @book.errors.count %> errors prohibited form this book from being saved.
+      <% @book.errors.full_messages.each do |message| %>
+        <ul><%= message %></ul>
+      <% end %>
+    <% end %>
+
     <%= form_with model:@book, url:"/books", local:true do |f| %>
+
       <h4>Title</h4>
       <%= f.text_field :title %>
 
@@ -36,8 +44,8 @@
       <%= f.text_area :body %>
 
       <%= f.submit "Create Book" %>
-
     <% end %>
+
   </div>
 
 </body>
